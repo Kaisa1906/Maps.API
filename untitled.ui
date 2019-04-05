@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>529</width>
-    <height>217</height>
+    <width>548</width>
+    <height>258</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -58,7 +58,7 @@
    <widget class="QPushButton" name="btn">
     <property name="geometry">
      <rect>
-      <x>180</x>
+      <x>400</x>
       <y>100</y>
       <width>131</width>
       <height>51</height>
@@ -73,13 +73,65 @@
      <string>Найти</string>
     </property>
    </widget>
+   <widget class="QGroupBox" name="Type">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>100</y>
+      <width>141</width>
+      <height>121</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>Тип карты</string>
+    </property>
+    <widget class="QRadioButton" name="gibr">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>10</y>
+       <width>91</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Гибрид</string>
+     </property>
+    </widget>
+    <widget class="QRadioButton" name="shem">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>40</y>
+       <width>101</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Схема</string>
+     </property>
+    </widget>
+    <widget class="QRadioButton" name="sput">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>60</y>
+       <width>91</width>
+       <height>41</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Спутник</string>
+     </property>
+    </widget>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>529</width>
+     <width>548</width>
      <height>21</height>
     </rect>
    </property>
