@@ -10,7 +10,7 @@ class MyWidget(QMainWindow):
     def __init__(self):
         super().__init__()
         uic.loadUi('untitled.ui', self)
-        self.btn.clicked.connect(self.shifrat)
+        self.btn.clicked.connect(self.clickonjpg)
 
     def clickonjpg(self):
         try:
@@ -54,3 +54,7 @@ class MyWidget(QMainWindow):
             os.remove(map_file)
         except Exception:
             pass
+app = QApplication(sys.argv)
+ex = MyWidget()
+ex.show()
+sys.exit(app.exec_())
