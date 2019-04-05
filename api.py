@@ -56,6 +56,14 @@ class MyWidget(QMainWindow):
                                 delta = str(float(delta)*2)
                         if event.key == pygame.K_DOWN:
                             delta = str(float(delta)/2)
+                        if event.key == pygame.K_w:
+                            toponym_lattitude = str(float(toponym_lattitude) + float(delta))
+                        if event.key == pygame.K_a:
+                            toponym_longitude = str(float(toponym_longitude) - float(delta)*2)
+                        if event.key == pygame.K_s:
+                            toponym_lattitude = str(float(toponym_lattitude) - float(delta))
+                        if event.key == pygame.K_d:
+                            toponym_longitude = str(float(toponym_longitude) + float(delta)*2)
                         map_params = {
                                 "ll": ",".join([toponym_longitude, toponym_lattitude]),
                                 "spn": ",".join([delta, delta]),
