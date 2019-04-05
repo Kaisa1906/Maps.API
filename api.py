@@ -10,19 +10,30 @@ class MyWidget(QMainWindow):
         super().__init__()
         uic.loadUi('untitled.ui', self)
         self.btn.clicked.connect(self.fun)
+        self.shem.setChecked(True)
+        self.shem.toggled.connect(self.v1)
+        self.gibr.toggled.connect(self.v2)
+        self.sput.toggled.connect(self.v3)
+        self.vid = "map"
+    def v1(self):
+        self.vid = "map"
+    def v2(self):
+        self.vid = "sat,skl"
+    def v3(self):
+        self.vid = "sat"
 
+        
     def fun(self):
         try:
             toponym_longitude = self.x.text()
             toponym_lattitude = self.y.text()
-
+            
             delta = "0.005"
-
             # Собираем параметры для запроса к StaticMapsAPI:
             map_params = {
                 "ll": ",".join([toponym_longitude, toponym_lattitude]),
                 "spn": ",".join([delta, delta]),
-                "l": "map"
+                "l": self.vid
             }
             print(map_params)
             map_api_server = "http://static-maps.yandex.ru/1.x/"
@@ -56,10 +67,18 @@ class MyWidget(QMainWindow):
                                 delta = str(float(delta)*2)
                         if event.key == pygame.K_DOWN:
                             delta = str(float(delta)/2)
+                        if event.key == pygame.K_w:
+                            toponym_lattitude = str(float(toponym_lattitude) + float(delta))
+                        if event.key == pygame.K_a:
+                            toponym_longitude = str(float(toponym_longitude) - float(delta)*2)
+                        if event.key == pygame.K_s:
+                            toponym_lattitude = str(float(toponym_lattitude) - float(delta))
+                        if event.key == pygame.K_d:
+                            toponym_longitude = str(float(toponym_longitude) + float(delta)*2)
                         map_params = {
                                 "ll": ",".join([toponym_longitude, toponym_lattitude]),
                                 "spn": ",".join([delta, delta]),
-                                "l": "map"
+                                "l": self.vid
                             }
                         print(map_params)
                         map_api_server = "http://static-maps.yandex.ru/1.x/"
